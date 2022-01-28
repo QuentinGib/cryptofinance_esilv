@@ -74,8 +74,6 @@ Même graphe pour a=0, h=0, n=3 et c=q :
 ![3q](img/minageOptimal/3_q.png)
 On remarque que l'attaquant ne commence à être rémunéré qu'au dessus de q=$\sqrt{2}$-1 (environ **41~42%** de la puissance de calcul).
 
-D'après nos résultat cette fonction d'ésperance de gain semble suivre une loi normale de variance n.
-
 <br>
 
 ## Conclusion
