@@ -17,7 +17,7 @@ def oneTwo(alice_power):
     r1 = 0
     h1 = 0
     
-    for i in range(10000):
+    for i in range(100000):
         block = 0
         # Sur 3 blocks
         for j in range(3):

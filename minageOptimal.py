@@ -12,7 +12,7 @@ from tkinter import *
 """
 a : nb de blocs secrets découverts
 h : taille de la blockchain off
-n : nombre de cycles
+n : nombre maximal de blocs découverts
 q : relative hashrate of the attacker
 """
 def optimalMining(a, h, n, q, c) :

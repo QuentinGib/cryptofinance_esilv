@@ -44,21 +44,15 @@ def selfish():
     alpha_entry = Entry(fenetre, textvariable=alpha)
     alpha_entry.grid(column=1, row=0)
     
-    label2 = Label(fenetre, text="gamma (between 0 and 1) : ")
-    label2.grid(column=0, row=1)
-    gamma = StringVar(fenetre)
-    gamma_entry = Entry(fenetre, textvariable=gamma)
-    gamma_entry.grid(column=1, row=1)
-    
     label3 = Label(fenetre, text="Number of simulation run : ")
-    label3.grid(column=0, row=2)
+    label3.grid(column=0, row=1)
     N = StringVar(fenetre)
     N_entry = Entry(fenetre, textvariable=N)
-    N_entry.grid(column=1, row=2)
+    N_entry.grid(column=1, row=1)
     
     button = Button(fenetre, text='Try attack', 
-                command=partial(resultSelfish, fenetre, alpha, gamma, N))
-    button.grid(column=3, row=3)
+                command=partial(resultSelfish, fenetre, alpha, N))
+    button.grid(column=3, row=2)
     
 def doubled():
     fenetre = Tk()
@@ -114,7 +108,7 @@ def opti():
     h_entry = Entry(fenetre, textvariable=h)
     h_entry.grid(column=1, row=1)
     
-    label3 = Label(fenetre, text="Nombre de cycles : ")
+    label3 = Label(fenetre, text="Nombre max de blocs : ")
     label3.grid(column=0, row=2)
     v = StringVar(fenetre)
     v_entry = Entry(fenetre, textvariable=v)
@@ -126,7 +120,7 @@ def opti():
     q_entry = Entry(fenetre, textvariable=q)
     q_entry.grid(column=1, row=3)
     
-    label4 = Label(fenetre, text="c : ")
+    label4 = Label(fenetre, text="Coût versé par l'attaquant' : ")
     label4.grid(column=0, row=4)
     A = StringVar(fenetre)
     A_entry = Entry(fenetre, textvariable=A)

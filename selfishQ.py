@@ -10,9 +10,8 @@ from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationTool
 from tkinter import *
 
 #alpha: selfish miners mining power (percentage),
-#gamma: the ratio of honest miners choose to mine on the selfish miners pool's block
 #N: number of simulations run
-def simulate(alpha,gamma,N):
+def simulate(alpha,N):
   
     # Start state 
     state=0
@@ -107,24 +106,23 @@ def simulate(alpha,gamma,N):
     result = float(SelfishRevenue)/ChainLength
     return result
 
-def resultSelfish(fenetre,alpha,gamma,N):
+def resultSelfish(fenetre,alpha,N):
 
     alpha = float(alpha.get())
-    gamma = float(gamma.get())
     N = int(N.get())
 
-    result = simulate(alpha, gamma, N)
-    label = Label(fenetre, text="Theoretical probability :"+str((alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha))))
-    label.grid(column=0, row=4)
+    result = simulate(alpha, N)
+    label = Label(fenetre, text="Theoretical probability :"+str((alpha*(1-alpha)**2*(4*alpha)-alpha**3)/(1-alpha*(1+(2-alpha)*alpha))))
+    label.grid(column=0, row=3)
     label = Label(fenetre, text="Simulated probability : "+str(result))
-    label.grid(column=0, row=5)
+    label.grid(column=0, row=4)
 
     y = []
     c = []
     for i in range(50):
         a = i/100
-        y.append(simulate(a, gamma, N))
-        c.append((a*(1-a)**2*(4*a+gamma*(1-2*a))-a**3)/(1-a*(1+(2-a)*a)))
+        y.append(simulate(a, N))
+        c.append(a)
     
 
     fig = Figure(figsize = (5, 5), 
@@ -140,10 +138,9 @@ def resultSelfish(fenetre,alpha,gamma,N):
                                master = fenetre)   
     canvas.draw() 
   
-    canvas.get_tk_widget().grid(column=0, columnspan=2, row=6)
+    canvas.get_tk_widget().grid(column=0, columnspan=2, row=5)
 
 alpha=0.33
-gamma=0
 Nsimu=10**6
 
 # print("Theoretical probability :",(alpha*(1-alpha)**2*(4*alpha+gamma*(1-2*alpha))-alpha**3)/(1-alpha*(1+(2-alpha)*alpha)))
